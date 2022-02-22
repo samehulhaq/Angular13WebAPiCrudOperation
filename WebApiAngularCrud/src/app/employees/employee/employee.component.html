@@ -1,0 +1,51 @@
+
+<form class="emp-form" #employeeForm="ngForm" class="bg-light p-3" (ngSubmit)="onSubmit(employeeForm)">
+
+    <input type="hidden" name="EmployeeId"  #EmployeeId="ngModel" [(ngModel)]="employeeService.selectedEmployee.EmployeeId">
+        <div class="form-row">
+    <div class="form-group col-6">
+        <input type="text"   class="form-control"  placeholder="Enter First Name..." name="#FirstName" #FirstName="ngModel" [(ngModel)]="employeeService.selectedEmployee.FirstName"  required>
+          <div style=" height: 10px; " *ngIf="FirstName.invalid && FirstName.touched" class="text-danger" role="alert"> <p>! FirstName is Required</p></div>  
+    
+    </div>
+            <div class="form-group col-6">
+                <input type="text" class="form-control" placeholder="Enter last Name..." name="#LastName" #LastName="ngModel" [(ngModel)]="employeeService.selectedEmployee.LastName" required>
+          <div style=" height: 10px; " *ngIf="LastName.invalid && LastName.touched" class="text-danger" role="alert"> <p>! LastName is Required</p></div>  
+           
+            </div>
+
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-12">
+                <input type="text" class="form-control" placeholder="Enter Emp Code..." name="#EmpCode" #EmpCode="ngModel" [(ngModel)]="employeeService.selectedEmployee.EmpCode" required>
+          <div style=" height: 10px; " *ngIf="EmpCode.invalid && EmpCode.touched" class="text-danger" role="alert"> <p>! EmpCode is Required</p></div>  
+            
+            </div>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-6">
+                <input type="text" class="form-control" placeholder="Enter Emp Position..." name="#Position" #Position="ngModel" [(ngModel)]="employeeService.selectedEmployee.Position" required>
+          <div style=" height: 10px; " *ngIf="Position.invalid && Position.touched" class="text-danger" role="alert"> <p>! Position is Required</p></div>  
+           
+            </div>
+
+            <div class="form-group col-6">
+                <input type="text" class="form-control" placeholder="Enter Emp Office..." name="#Office" #Office="ngModel" [(ngModel)]="employeeService.selectedEmployee.Office" required>
+          <div style=" height: 10px; " *ngIf="Office.invalid && Office.touched" class="text-danger" role="alert"> <p>! Office is Required</p></div>  
+            
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-8">
+                <button type="submit" [disabled]="employeeForm.invalid" class="btn btn-lg btn-block btn-info">Save</button>
+            </div>
+            <div class="form-group col-4">
+                <button type="button" (click)="resetForm(employeeForm)" class="btn btn-secondary  btn-lg btn-block">Reset</button>
+
+            </div>
+            
+        </div>
+</form>
